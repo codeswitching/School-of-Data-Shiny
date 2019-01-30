@@ -1,0 +1,249 @@
+---
+title: "Making interactive apps"
+subtitle: "with Shiny"
+author: "RLadies::Los Angeles"
+date: "2018-06-23"
+output:
+  xaringan::moon_reader:
+    css: ["default", "rladies", "rladies-fonts"]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+# What is Shiny?
+
+### Adds interactivity to R output (text, plots, tables, maps)
+
+### Lets non-R users explore your datasets and customize your visualizations 
+
+<img src="https://codeswitching.github.io/2018-06-23-shiny/images/baby_cuttlefish.jpg" width="500">
+
+---
+
+# An example Shiny app
+
+### JoyFlow
+
+https://lsteely.shinyapps.io/streamflow_joyplots/
+
+<img src="https://codeswitching.github.io/2018-06-23-shiny/images/joyflow_screencap.PNG" width="600">
+
+---
+class: center, middle
+
+# Other examples
+
+https://lsteely.shinyapps.io/Gate-Flow-Analysis/
+
+https://shiny.rstudio.com/gallery/
+
+<img src="https://codeswitching.github.io/2018-06-23-shiny/images/baby_cuttlefish2.jpg" width="400">
+
+---
+class: center, middle
+
+# Getting Started
+
+Load this presentation (so you can copy & paste from it):
+
+### `https://tinyurl.com/y7ksnokp`
+
+Clone the GitHub repo to your machine:
+
+`New project... > Version control...> Git > `
+### `https://github.com/codeswitching/2018-06-23-shiny`
+
+Install the **shiny** and **DT** packages:
+
+```{r eval=FALSE, tidy=FALSE}
+install.packages("shiny")
+install.packages("DT")
+```
+
+---
+
+# Example 1 - A simple Shiny app
+
+### example1/example1.R
+
+Here's a boring, uninteractive plot:
+
+<img src="https://codeswitching.github.io/2018-06-23-shiny/images/histogram.PNG" width="400">
+
+Can we make this interactive?
+
+---
+
+# The Shiny Template
+
+```{r eval=FALSE, tidy=FALSE}
+library(shiny)
+
+# 1 Function that builds the html code for the user interface
+
+ui <- fluidPage()
+
+# 2 Function that contains the back-end R code
+
+server <- function(input, output) {}
+
+# 3 Builds the app and launches it!
+
+shinyApp(ui = ui, server = server)
+```
+
+---
+
+# The Shiny Template: more detail
+
+```{r eval=FALSE, tidy=FALSE}
+library(shiny
+        )
+# 1 Function that builds the html code for the user interface
+
+ui <- fluidPage(
+  ___Input("input_name") # An input widget
+  plotOutput("output_name") # An output widget
+)
+
+# 2 Function that contains the back-end R code
+
+server <- function(input, output) {
+  # Here is where we define how the inputs affect the outputs
+  output$output_name <- renderPlot(plot_function(input$input_name))
+}
+
+# 3 Builds the app and launches it!
+
+shinyApp(ui = ui, server = server)
+```
+
+---
+
+# Example 1: Interactive Version
+
+```{r eval=FALSE, tidy=FALSE}
+ui <- fluidPage(
+  sliderInput("bins", "Number of bins:",
+              min = 1,
+              max = 50,
+              value = 30),
+  
+   plotOutput("distPlot")
+)
+
+server <- function(input, output) {
+   output$distPlot <- renderPlot({
+      x    <- faithful[, 2] 
+*      bins <- seq(min(x), max(x), length.out = input$bins + 1)
+      hist(x, breaks = bins, col = 'darkgray', border = 'white')
+   })
+}
+
+shinyApp(ui = ui, server = server)
+```
+  
+---
+class: center, middle, inverse
+
+# UI Section
+
+---
+
+# Input Widgets
+
+- sliderInput()
+- textInput()
+- numericInput()
+- actionButton()
+- checkboxInput()
+- dateInput()
+- radioButtons()
+- selectInput()
+- fileInput()
+
+### `___Input("name", "Label", value = )`
+### `___Input("name", "Label", defaultValue = , choices = c())`
+
+### Access in server section using `input$name`
+
+---
+
+# Example 2 - Input Widgets
+
+### example2/app.R
+
+<img src="https://codeswitching.github.io/2018-06-23-shiny/images/baby_octopus.jpg" width="400">
+
+---
+
+# Output Widgets
+
+### Go in the UI section
+
+- dataTableOutput("name")
+- plotOutput()
+- textOutput()
+- imageOutput()
+
+### Access in server section using `output$name`
+
+---
+class: center, middle, inverse
+
+# Server Section
+
+---
+
+# Reactive Functions
+
+### Go in the server section
+### Require curly braces
+
+- `renderPlot({ }) # update a plot`
+- `renderDataTable({ }) # update a data table`
+- `renderPrint({ })`
+- `reactive({ }) # update a variable`
+- `observeEvent( input$button1, { some code })`
+- `eventReactive( input$button1, { some code })`
+
+---
+
+# Example 3: A datatable
+
+### example3/app.R
+
+<img src="https://codeswitching.github.io/2018-06-23-shiny/images/baby_cuttlefish3.jpg" width="400">
+
+---
+class: center, middle
+
+# Publishing to shinyapps.io
+
+<img src="https://codeswitching.github.io/2018-06-23-shiny/images/baby_nautilus2.gif" width="400">
+
+---
+
+class: center, middle
+
+# JoyFloy
+
+Install some other packages we need for JoyFlow:
+
+```{r eval=FALSE, tidy=FALSE}
+install.packages("tidyverse")
+install.packages("plotly")
+install.packages("dataRetrieval")
+install.packages("lubridate")
+install.packages("ggjoy")
+install.packages("RColorBrewer")
+install.packages("shinythemes")
+install.packages("WaterML")
+```
