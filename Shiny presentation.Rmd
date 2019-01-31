@@ -1,7 +1,7 @@
 ---
-title: "Making interactive apps"
-subtitle: "with Shiny"
-author: "Data+Donuts School of Data"
+title: "Shiny: Building interactive, shareable web apps with R"
+subtitle: "Data + Donuts School of Data"
+author: "Lauren Steely & Robert Mitchell"
 date: "2019-02-01"
 output:
   xaringan::moon_reader:
@@ -58,7 +58,7 @@ Load this presentation (so you can copy & paste from it):
 Clone the GitHub repo to your machine:
 
 `New project... > Version control...> Git > `
-### `https://github.com/codeswitching/2018-06-23-shiny`
+### `https://github.com/codeswitching/School-of-Data-Shiny`
 
 Install the **shiny** and **DT** packages:
 
