@@ -1,8 +1,8 @@
 ---
 title: "Making interactive apps"
 subtitle: "with Shiny"
-author: "RLadies::Los Angeles"
-date: "2018-06-23"
+author: "Data+Donuts School of Data"
+date: "2019-02-01"
 output:
   xaringan::moon_reader:
     css: ["default", "rladies", "rladies-fonts"]

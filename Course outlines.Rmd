@@ -1,0 +1,44 @@
+---
+title: "School of Data Courses"
+author: "Lauren Steely"
+date: "January 30, 2019"
+output: html_document
+---
+
+## Reproducible Research course
+
+Synopsis: How to set up a reproducible, documented data pipeline with R
+
+Themes:
+* reproducibility
+* documentation for future users and analysts
+* idea of well-documented and -organized data pipelines
+
+Topics to cover:
+* Example of non-reproducible, undocumented data analysis in Excel
+* Paradigm of report + embedded code (show example)
+   + Contrast with older paradigm of code with embedded comments
+* Documenting an exploratory data analysis as you go (example)
+* File naming, file management
+* Data pipelines and documentation
+* Intro to Rmarkdown, embedding code, working with .rmd files in RStudio, knitting, (maybe an interactive example here for students to see how it works?)
+* Creating shareable reports with Rmarkdown (example)
+* Creating websites with Rmarkdown (Robert's website example)
+* Creating pseudo-interactive dashboards with Rmarkdown and plotly (Lauren's shinydashboard example)
+
+
+## Shiny course
+
+Synopsis: How to create 
+
+Topics to cover:
+* Show some example Shiny apps as intro
+* Comparison of interactivity: static Rmarkdown report, Rmarkdown with plotly, Shiny app, fully interactive javascript app
+* Structure of a Shiny app (UI, Server) (toy example 1)
+* Creating UI widgets (toy example 2)
+* Intro to reactivity
+* Creating reactive charts and maps (toy example 3)
+* Two real-world examples
+   + Joyflow (Lauren)
+   + Intro to Statistical Learning (Robert)
+* Hosting and sharing shiny apps (shinyapps.io, local server, github...)
