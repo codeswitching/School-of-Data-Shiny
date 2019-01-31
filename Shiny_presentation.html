@@ -27,29 +27,19 @@ class: center, middle, inverse, title-slide
 
 ### Adds interactivity to R output (text, plots, tables, maps)
 
-### Lets non-R users explore your datasets at their own pace
-
 ### Allows you to create small shareable web apps
+
+### Lets non-R users explore your datasets at their own pace
 
 &lt;img src="https://codeswitching.github.io/2018-06-23-shiny/images/baby_cuttlefish.jpg" width="400"&gt;
 
 ---
 class: center, middle
 
-# The Scale of Interactivity
+# Interactivity in R
 
 ### &lt;- Not so interactive ------ sorta interactive ------ Very interactive -&gt;
-
-Rmarkdown report | Rmarkdown + Plotly charts | **Shiny app** | D3 Javascript app
-
-http://rpubs.com/lauren_bren/keras
-
-http://rpubs.com/lauren_bren/reservoirs
-
-https://lsteely.shinyapps.io/streamflow_joyplots/
-
-https://playground.tensorflow.org/
-
+.small[[Rmarkdown report](http://rpubs.com/lauren_bren/keras) | [Rmarkdown + Plotly](http://rpubs.com/lauren_bren/reservoirs) | shinydashboards | [**Shiny app**](https://lsteely.shinyapps.io/streamflow_joyplots/) | [D3 Javascript app](https://playground.tensorflow.org/)]
 ---
 
 # An example Shiny app
@@ -294,30 +284,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   d.head.appendChild(s);
 })();</script>
 
-<script>
-(function() {
-  var i, text, code, codes = document.getElementsByTagName('code');
-  for (i = 0; i < codes.length;) {
-    code = codes[i];
-    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
-      text = code.textContent;
-      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
-          /^\$\$(.|\s)+\$\$$/.test(text) ||
-          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
-        code.outerHTML = code.innerHTML;  // remove <code></code>
-        continue;
-      }
-    }
-    i++;
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
   }
-})();
+});
 </script>
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
 (function () {
   var script = document.createElement('script');
   script.type = 'text/javascript';
-  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML';
   if (location.protocol !== 'file:' && /^https?:/.test(script.src))
     script.src  = script.src.replace(/^https?:/, '');
   document.getElementsByTagName('head')[0].appendChild(script);
