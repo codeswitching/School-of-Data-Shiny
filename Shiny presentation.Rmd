@@ -61,11 +61,11 @@ class: center, middle
 
 # Getting Started
 
-Load this presentation (so you can copy & paste from it):
+Download and unzip the Github repository:
 
-### `https://tinyurl.com/ycdustb6`
+### https://github.com/codeswitching/School-of-Data-Shiny`
 
-Clone the GitHub repo to your machine:
+Or, clone the GitHub repo to your machine:
 
 `New project... > Version control...> Git > `
 ### `https://github.com/codeswitching/School-of-Data-Shiny`

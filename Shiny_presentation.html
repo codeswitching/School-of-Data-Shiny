@@ -39,7 +39,8 @@ class: center, middle
 # Interactivity in R
 
 ### &lt;- Not so interactive ------ sorta interactive ------ Very interactive -&gt;
-.small[[Rmarkdown report](http://rpubs.com/lauren_bren/keras) | [Rmarkdown + Plotly](http://rpubs.com/lauren_bren/reservoirs) | shinydashboards | [**Shiny app**](https://lsteely.shinyapps.io/streamflow_joyplots/) | [D3 Javascript app](https://playground.tensorflow.org/)]
+[Rmarkdown report](http://rpubs.com/lauren_bren/keras) | [Rmarkdown + Plotly](http://rpubs.com/lauren_bren/reservoirs) | shinydashboards | [**Shiny app**](https://lsteely.shinyapps.io/streamflow_joyplots/) | [D3 Javascript app](https://playground.tensorflow.org/)
+
 ---
 
 # An example Shiny app
@@ -66,11 +67,11 @@ class: center, middle
 
 # Getting Started
 
-Load this presentation (so you can copy &amp; paste from it):
+Download and unzip the Github repository:
 
-### `https://tinyurl.com/ycdustb6`
+### https://github.com/codeswitching/School-of-Data-Shiny`
 
-Clone the GitHub repo to your machine:
+Or, clone the GitHub repo to your machine:
 
 `New project... &gt; Version control...&gt; Git &gt; `
 ### `https://github.com/codeswitching/School-of-Data-Shiny`
@@ -101,17 +102,17 @@ Can we make this interactive?
 
 
 ```r
-library(shiny)
+library(shiny) # Load the Shiny library
 
-# 1 Function that builds the html code for the user interface
+# 1. Function that builds the user interface: How will the app look?
 
 ui &lt;- fluidPage()
 
-# 2 Function that contains the back-end R code
+# 2 Function that defines how the app will work under the hood. Contains the back-end R code.
 
 server &lt;- function(input, output) {}
 
-# 3 Builds the app and launches it!
+# 3 Function to build the app and launch it
 
 shinyApp(ui = ui, server = server)
 ```
@@ -122,23 +123,23 @@ shinyApp(ui = ui, server = server)
 
 
 ```r
-library(shiny
-        )
-# 1 Function that builds the html code for the user interface
+library(shiny)
+
+# 1. Function that builds the user interface: How will the app look?
 
 ui &lt;- fluidPage(
-  ___Input("input_name") # An input widget
-  plotOutput("output_name") # An output widget
+  sliderInput("daterange") # An input widget: a slider, text box, dropdown menu...
+  plotOutput("chart1") # An output widget: a plot, table, map...
 )
 
-# 2 Function that contains the back-end R code
+# 2 Function that defines how the app will work under the hood. Contains the back-end R code.
 
 server &lt;- function(input, output) {
   # Here is where we define how the inputs affect the outputs
-  output$output_name &lt;- renderPlot(plot_function(input$input_name))
+  output$chart1 &lt;- renderPlot({ plot(input$daterange) })
 }
 
-# 3 Builds the app and launches it!
+# 3 Function to build the app and launch it
 
 shinyApp(ui = ui, server = server)
 ```
@@ -160,9 +161,9 @@ ui &lt;- fluidPage(
 
 server &lt;- function(input, output) {
    output$distPlot &lt;- renderPlot({
-      x    &lt;- faithful[, 2] 
-*      bins &lt;- seq(min(x), max(x), length.out = input$bins + 1)
-      hist(x, breaks = bins, col = 'darkgray', border = 'white')
+     x &lt;- faithful[, 2] 
+*    bins &lt;- seq(min(x), max(x), length.out = input$bins + 1)
+     hist(x, breaks = bins, col = 'darkgray', border = 'white')
    })
 }
 
@@ -192,7 +193,7 @@ class: center, middle, inverse
 ### `___Input("name", "Label", defaultValue = , choices = c())`
 
 ### Access in server section using `input$name`
-
+[Input widget gallery] (https://shiny.rstudio.com/gallery/widget-gallery.html)
 ---
 
 # Example 2 - Input Widgets
